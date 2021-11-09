@@ -74,12 +74,25 @@ Use the higher-order function getWinners to do the following:
 
 //2 params array / getFinalscb
 
-function getWinners(array, getFinalscb) {
+function getWinners(data, getFinalscb) {
     /* code here */
-
+    const winners = getFinalscb(data).map(function(item){
+        if(item['Home Team Goals'] > item['Away Team Goals']){
+            return item["Home Team Name"];
+        } else {
+            return item["Away Team Name"];
+        }
+    });
+    return winners;
     //use map
     //use a conditional if home team goals > away team goals then we want the home team name, else we want the away team name.
 }
+
+console.log('Task 4:', getWinners(fifaData, getFinals));
+
+
+
+
 
 
 
