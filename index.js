@@ -55,13 +55,12 @@ Use the higher-order function called getYears to do the following:
 //2 params array / getFinalscb
 
 
-function getYears(array, getFinalscb) {
-    /* code here */
-    const years = array.map(function(item) {
-        return item.Years;
-    })
-   
+function getYears(data, getFinalscb) {
+    const years = getFinalscb(data).map(function(item){
+        return item.Year;
+    })   
     //map over the result of getFinals to get all the years
+    return years;
 }
 console.log('Task 3:', getYears(fifaData, getFinals));
 
@@ -75,7 +74,7 @@ Use the higher-order function getWinners to do the following:
 
 //2 params array / getFinalscb
 
-function getWinners(/* code here */) {
+function getWinners(array, getFinalscb) {
     /* code here */
 
     //use map
